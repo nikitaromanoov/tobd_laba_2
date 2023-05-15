@@ -26,7 +26,10 @@ jobs:
         name: create .env file
         run: |
           touch .env
-          echo ANSIBLE="${{secrets.ANSIBLE }}" >> .env
+          echo REDIS_USER="${{secrets.REDIS_USER }}" >> .env
+          echo REDIS_PASSWORD="${{secrets.REDIS_PASSWORD }}" >> .env
+          echo REDIS_ADDRESS="${{secrets.REDIS_ADDRESS}}" >> .env
+          echo REDIS_PORT="${{secrets.REDIS_PORT }}" >> .env
       -
         name: Run tests
         run: docker-compose up --abort-on-container-exit
